@@ -5,7 +5,7 @@
 
 ### 네트워크 정리
 1. IP 주소 = 네트워크 ID + 호스트 ID
-  - SubnetMask
+    - SubnetMask
 
 2. Lan 구성 : 네트워크 아이디가 같으면 Lan
 
