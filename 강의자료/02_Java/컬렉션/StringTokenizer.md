@@ -27,6 +27,4 @@ public static void main(String[] args) {
             System.out.println(tokenizer.nextToken());
         }
     }
-![image](https://github.com/user-attachments/assets/114180cc-1f28-46f7-971e-4c5cb423729d)
-
 ```
