@@ -6,8 +6,9 @@
 - - 는 구분자를 뜻 하는 것이고 010, 1234, 5678 은 Token(토큰) 인 것입니다.
 
 ### 생성자(Constructor)
+![생성자_01](https://github.com/user-attachments/assets/589bf3b2-f38d-4b94-a589-eee5d339b42c)
 
-![image](https://github.com/user-attachments/assets/8c4e28d5-3c2c-446f-b173-c520ef1d0fc4)
+
 
 
 ### method
