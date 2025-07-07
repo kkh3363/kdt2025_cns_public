@@ -12,3 +12,21 @@
 
 
 ### method
+![매소드_01](https://github.com/user-attachments/assets/1ee7752f-b1d0-4d37-997e-885bfc4d59dd)
+
+
+### 예제 코드
+```
+public static void main(String[] args) {
+        String str = "hello \n my \f name \t is \r pro nine";
+        System.out.println("str에 담긴 값은 : " + str);
+        StringTokenizer tokenizer = new StringTokenizer(str);
+
+        System.out.println("=== String Tokenizer Strart ===");
+        while (tokenizer.hasMoreTokens()){
+            System.out.println(tokenizer.nextToken());
+        }
+    }
+![image](https://github.com/user-attachments/assets/114180cc-1f28-46f7-971e-4c5cb423729d)
+
+```
