@@ -18,6 +18,7 @@ public class Exam04 {
 			System.exit(0);
 		
 		System.out.println( "남자 인구가 가장 많은 곳은 : " + sman.getManMaxGu());
+		System.out.println( "여자 인구가 가장 많은 곳은 : " + sman.getWomenMaxGu());
 	}
 
 }
