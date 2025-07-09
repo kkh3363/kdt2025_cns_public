@@ -47,23 +47,23 @@ public class SeoulManager {
 	}
 	// 남자 인구가 가장 많은 곳
 	public String getManMaxGu() {
-		CityPop max = seoulList.stream().max( Comparator.comparing(CityPop::getManCount)).get();
-		return max.getName();
+		CityPop cityPop = seoulList.stream().max( Comparator.comparing(CityPop::getManCount)).get();
+		return cityPop.getName();
 	}
 	// 남자 인구가 가장 적은 곳
 	public String getManMinGu() {
-		CityPop max = seoulList.stream().min( Comparator.comparing(CityPop::getManCount)).get();
-		return max.getName();
+		CityPop cityPop = seoulList.stream().min( Comparator.comparing(CityPop::getManCount)).get();
+		return cityPop.getName();
 	}
 	// 여자 인구가 가장 많은 구
 	public String getWomenMaxGu() {
-		CityPop max = seoulList.stream().max( Comparator.comparing(CityPop::getWomenCount)).get();
-		return max.getName();
+		CityPop cityPop = seoulList.stream().max( Comparator.comparing(CityPop::getWomenCount)).get();
+		return mcityPopax.getName();
 	}
 	// 여자 인구가 가장 적은 곳...
 	public String getWomenMinGu() {
-		CityPop max = seoulList.stream().min( Comparator.comparing(CityPop::getWomenCount)).get();
-		return max.getName();
+		CityPop cityPop = seoulList.stream().min( Comparator.comparing(CityPop::getWomenCount)).get();
+		return cityPop.getName();
 	}
 	
 	public int getCurrentListCount() {
