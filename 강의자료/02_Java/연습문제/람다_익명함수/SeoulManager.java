@@ -65,7 +65,15 @@ public class SeoulManager {
 		CityPop cityPop = seoulList.stream().min( Comparator.comparing(CityPop::getWomenCount)).get();
 		return cityPop.getName();
 	}
-	
+	// 평균 인구수...
+	public double getAverage() {
+		int nSum = 0;
+		
+		for( CityPop cp : seoulList)
+			nSum += cp.getTotalPopulation();
+		
+		return (double)nSum / seoulList.size();
+	}
 	public int getCurrentListCount() {
 		return seoulList.size();
 	}
