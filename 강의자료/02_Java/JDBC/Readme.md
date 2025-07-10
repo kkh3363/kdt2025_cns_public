@@ -1,5 +1,7 @@
 ## 다음 문제를 해결하는 프로그램을 작성해 보자
-
+- 다음을 작성해서
+  - java / jdbc / 학생관리  폴더에 코드 올리기
+    
 - student 테이블 만들기    
 stdno , int  primary key    
 stdname, varchar(20)    
