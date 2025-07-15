@@ -19,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
 import mygui.boardapp.controller.DbManager;
+import mygui.boardapp.model.dto.BoardDto;
 
 public class BoardMain extends JFrame {
 	private JTable jTable;
@@ -48,6 +49,7 @@ public class BoardMain extends JFrame {
 		if(jTable == null) {
 			jTable = new JTable();
 			
+			
 			DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 			tableModel.addColumn("번호");
 			tableModel.addColumn("제목");
@@ -73,13 +75,19 @@ public class BoardMain extends JFrame {
 			///////////////////////////////////////////////////////
 			jTable.addMouseListener(new MouseAdapter() {
 				public void mouseClicked(MouseEvent e) {
-					//코드 추가
+					int rowIndex = jTable.getSelectedRow();
+					if(rowIndex !=-1) {
+						BoardDto board = dbManager.getBoardOne(rowIndex);
+						ViewDialog viewDialog = new ViewDialog(BoardMain.this);
+						viewDialog.setBoard(board);
+						viewDialog.setVisible(true);
 					}
-				}		
-			);
+				}
+			});
 			
 			///////////////////////////////////////////////////////
 		}
+		
 		dbManager.loadDataToJTable(jTable);
 		return jTable;
 	}

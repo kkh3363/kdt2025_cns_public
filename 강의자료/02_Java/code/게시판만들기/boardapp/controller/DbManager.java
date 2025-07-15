@@ -42,4 +42,8 @@ public class DbManager {
 			tableModel.addRow(rowData);
 		}
 	}
+	
+	public BoardDto getBoardOne(int nIndex) {
+		return boardList.get(nIndex);
+	}
 }
