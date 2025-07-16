@@ -1,5 +1,5 @@
 # kdt2025_cns_public
----
+
 - [SQLD](https://www.dataq.or.kr/www/accept/schedule.do)
   - 시험 시간은 총 90분이며 아래와 같이 문제가 출제된다.
   - 1과목 - 데이터 모델링의 이해: 10문제(문항당 2점) → 총 20점 (8점 미만 과락)
