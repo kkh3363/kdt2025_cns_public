@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MultiRoom.UsersController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="580.0" prefWidth="880.0">
+         <children>
+            <Label layoutX="10.0" layoutY="20.0" text="아이디" />
+            <Label layoutX="10.0" layoutY="80.0" text="비밀번호" />
+            <Label layoutX="10.0" layoutY="140.0" text="이메일" />
+            <Label layoutX="10.0" layoutY="200.0" text="이름" />
+            <Label layoutX="10.0" layoutY="260.0" text="Type" />
+            <TextField fx:id="tfId" layoutX="87.0" layoutY="16.0" />
+            <TextField fx:id="tfPw" layoutX="87.0" layoutY="76.0" />
+            <TextField fx:id="tfEmail" layoutX="87.0" layoutY="136.0" />
+            <TextField fx:id="tfName" layoutX="87.0" layoutY="196.0" />
+            <TextField fx:id="tfType" layoutX="87.0" layoutY="256.0" />
+            <TableView fx:id="tableView" layoutX="310.0" layoutY="10.0" prefHeight="560.0" prefWidth="560.0">
+              <columns>
+                <TableColumn fx:id="tcId" prefWidth="100.0" text="아이디" />
+                <TableColumn fx:id="tcPw" prefWidth="100.0" text="비밀번호" />
+                  <TableColumn fx:id="tcEmail" prefWidth="188.0" text="이메일" />
+                  <TableColumn fx:id="tcName" minWidth="3.0" prefWidth="85.0" text="이름" />
+                  <TableColumn fx:id="tcType" minWidth="3.0" prefWidth="85.0" text="Type" />
+              </columns>
+            </TableView>
+            <Button fx:id="btn1" layoutX="10.0" layoutY="340.0" mnemonicParsing="false" text="조회" />
+            <Button fx:id="btn2" layoutX="70.0" layoutY="340.0" mnemonicParsing="false" text="추가" />
+            <Button fx:id="btn3" layoutX="130.0" layoutY="340.0" mnemonicParsing="false" text="삭제" />
+            <Button fx:id="btnMain" layoutX="190.0" layoutY="340.0" mnemonicParsing="false" text="메인화면" />          
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

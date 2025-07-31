@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MultiRoom.registerRoomController">
+   <children>
+      <Text layoutX="83.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="방 이름" />
+      <Text layoutX="61.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="최대 수용 인원" />
+      <Text layoutX="68.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="시간당 가격" />
+      <Text layoutX="76.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="상세정보" />
+      <Text layoutX="124.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="대여 가능 날짜" />
+      <Text layoutX="124.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="대여 가능 시간" />
+      <Text layoutX="359.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="위치" />
+      <Text layoutX="678.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="사진" />
+      <TextField fx:id="room_name" layoutX="149.0" layoutY="118.0" />
+      <TextField fx:id="max_capacity" layoutX="149.0" layoutY="163.0" />
+      <TextField fx:id="hourly_rate" layoutX="149.0" layoutY="208.0" />
+      <TextField fx:id="details" layoutX="149.0" layoutY="253.0" />
+      <TextField fx:id="location" layoutX="410.0" layoutY="140.0" />
+      <CheckBox fx:id="time1" layoutX="215.0" layoutY="380.0" mnemonicParsing="false" text="오전" />
+      <CheckBox fx:id="time2" layoutX="346.0" layoutY="380.0" mnemonicParsing="false" text="오후" />
+      <CheckBox fx:id="time3" layoutX="476.0" layoutY="380.0" mnemonicParsing="false" text="야간" />
+      <Button fx:id="pic_room" layoutX="743.0" layoutY="265.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="88.0" text="이미지 선택" />
+      <Button fx:id="register_room" layoutX="712.0" layoutY="394.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="80.0" text="등록">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font></Button>
+      <DatePicker fx:id="date1" layoutX="215.0" layoutY="335.0" prefHeight="22.0" prefWidth="114.0" />
+      <DatePicker fx:id="date2" layoutX="401.0" layoutY="335.0" prefHeight="22.0" prefWidth="121.0" />
+      <Label layoutX="362.0" layoutY="339.0" text="~" />
+      <Text layoutX="347.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="비밀번호" />
+      <TextField fx:id="room_password" layoutX="410.0" layoutY="230.0" />
+      <Text layoutX="353.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="서비스" />
+      <TextField fx:id="service" layoutX="410.0" layoutY="185.0" />
+      <Button fx:id="btnMain" layoutX="820.0" layoutY="17.0" mnemonicParsing="false" text="메인화면" />
+      <ImageView fx:id="PreviewImage" fitHeight="180.0" fitWidth="180.0" layoutX="662.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../image/icon/2736670.png" />
+         </image>
+      </ImageView>
+      <Line endX="-100.0" endY="400.0" layoutX="710.0" layoutY="47.0" startX="-100.0" />
+      <Text fill="#176e8d" layoutX="16.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="방 등록" textAlignment="CENTER" wrappingWidth="212.0">
+         <font>
+            <Font name="System Italic" size="33.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

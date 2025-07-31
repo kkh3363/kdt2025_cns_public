@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MultiRoom.managerMainController">
+   <children>
+      <AnchorPane prefHeight="580.0" prefWidth="880.0" style="-fx-background-color: white;">
+         <children>
+            <Button fx:id="btnUserManager" layoutX="323.0" layoutY="141.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="235.0" text="회원 관리" />
+            <Button fx:id="btnRoomManager" layoutX="323.0" layoutY="300.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="235.0" text="방 관리" />
+            <Button fx:id="btnSalesManager" layoutX="323.0" layoutY="388.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="235.0" text="매출 관리" />
+            <Button fx:id="btnRoomADDManager" layoutX="323.0" layoutY="221.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="235.0" text="방 추가" />
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

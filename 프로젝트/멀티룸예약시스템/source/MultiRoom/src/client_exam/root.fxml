@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client_exam.RootController">
+   <children>
+      <Pane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #eaeaea;">
+         <children>
+            <TextField fx:id="id_text" layoutX="320.0" layoutY="185.0" prefHeight="35.0" prefWidth="235.0" promptText="Enter ID" styleClass="text-field">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" color="#c6c0c0" height="14.83" radius="8.4575" />
+               </effect>
+            </TextField>
+            <PasswordField fx:id="pwd_text" layoutX="320.0" layoutY="246.0" prefHeight="35.0" prefWidth="235.0" promptText="Enter Password">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" color="#c6c0c0" height="14.83" radius="8.4575" />
+               </effect>
+            </PasswordField>
+            <Button fx:id="btnLogin" layoutX="320.0" layoutY="310.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="235.0" text="로그인" />
+         </children>
+      </Pane>
+   </children>
+</StackPane>
