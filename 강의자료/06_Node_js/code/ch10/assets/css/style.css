@@ -162,6 +162,9 @@ td .btn {
 }
 .login-btn,
 .register-btn {
+  margin: 10px auto;
+  padding: 10px;
+  width: 60%;
   border:none;
 }
 
