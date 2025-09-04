@@ -1,7 +1,9 @@
 ```
 ch10/
 │
-| assets  
+|── assets
+│   └── getAll.html
+│
 ├── controllers/
 │   └── contactController.js
 │
