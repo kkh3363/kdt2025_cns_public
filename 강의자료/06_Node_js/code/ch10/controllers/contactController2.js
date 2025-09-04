@@ -5,5 +5,5 @@ const getAllContacts = asyncHandler(async (req, res) => {
     { name: "Jane", email: "jane@aaa.bbb", phone: "67891234" },
   ];
   res.render(“getAll”, { heading: “User List” , users});
-  //res.render(“index”, { heading: “User List” , users});
+  
 });
