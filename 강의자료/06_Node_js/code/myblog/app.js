@@ -27,7 +27,7 @@ app.use(methodOverride("_method"));
 app.use(cookieParser());
 
 app.use("/", require("./routes/main"));
-//app.use("/", require("./routes/admin"));
+app.use("/", require("./routes/admin"));
 
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
