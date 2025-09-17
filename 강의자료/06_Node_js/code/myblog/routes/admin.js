@@ -62,7 +62,8 @@ router.post(
 
     // 일치하는 사용자가 없으면 401 오류 표시
     if (!user) {
-      return res.status(401).json({ message: "일치하는 사용자가 없습니다." });
+      //return res.status(401).json({ message: "일치하는 사용자가 없습니다." });
+       return res.render('admin/index', { layout: adminLayout2 , message: "일치하는 사용자가 없습니다." });
     }
 
     // 입력한 비밀번호와 DB에 저장된 비밀번호 비교
@@ -70,7 +71,8 @@ router.post(
 
     // 비밀번호가 일치하지 않으면 401 오류 표시
     if (!isValidPassword) {
-      return res.status(401).json({ message: "비밀번호가 일치하지 않습니다." });
+      //return res.status(401).json({ message: "비밀번호가 일치하지 않습니다." });
+       return res.render('admin/index', { layout: adminLayout2 , message: "비밀번호가 일치하지 않습니다." });
     }
 
     // JWT 토큰 생성
@@ -222,5 +224,6 @@ router.post(
     }
   })
 );
+
 
 module.exports = router;
