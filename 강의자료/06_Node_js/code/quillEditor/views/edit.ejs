@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>새 글 작성 - Travel Log</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
+
+    <style>
+        /* --- 기본 스타일 --- */
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        .header { 
+            padding: 0 20px; /* 좌우 여백 */
+            border-bottom: 1px solid #eee; 
+            background-color: #fff;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex; 
+            align-items: center; 
+            padding: 15px 0; 
+        }
+        .header .logo { 
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        /* --- 페이지 전체 구조 --- */
+        .page-wrapper {
+            display: flex;
+            margin-top: 30px;
+            gap: 30px;
+        }
+
+        /* --- 사이드바 --- */
+        .sidebar {
+            width: 250px;
+            flex-shrink: 0;
+        }
+        .sidebar-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+        .sidebar-actions .btn {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            padding: 10px 16px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .sidebar-actions .btn-primary {
+             background-color: #007bff;
+             color: white; 
+             border: 1px solid #007bff;
+        }
+        .sidebar-box h3 {
+            font-size: 1rem;
+            margin: 0 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            background-color: #fff;
+        }
+
+        .thumbnail-uploader label {
+            display: inline-block;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .thumbnail-uploader input[type="file"] {
+            display: none;
+        }
+        #thumbnail-preview {
+            width: 100%;
+            margin-top: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .tag-input-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fff;
+        }
+        #tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        #tag-list li {
+            display: flex;
+            align-items: center;
+            background-color: #007bff;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            margin: 5px;
+            font-size: 0.9rem;
+        }
+        #tag-list li .remove-tag-btn {
+            margin-left: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        #tag-input {
+            border: none;
+            outline: none;
+            flex-grow: 1;
+            padding: 5px;
+            font-size: 0.9rem;
+            min-width: 100px;
+        }
+
+        /* --- 메인 콘텐츠 (에디터) --- */
+        .main-content {
+            flex: 1;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .post-title-input {
+            width: 100%;
+            padding: 10px 0;
+            border: none;
+            font-size: 2rem;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            outline: none;
+            background-color: transparent;
+        }
+        #editor { min-height: 600px; }
+        .ql-toolbar.ql-snow {
+            border: 1px solid #ddd;
+            border-bottom: none;
+            border-radius: 8px 8px 0 0;
+        }
+        .ql-container.ql-snow {
+            border: 1px solid #ddd;
+            border-radius: 0 0 8px 8px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="main.html" class="logo">✈️ Travel Log</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="page-wrapper">
+            
+            <main class="main-content">
+                <input type="text" id="postTitle" class="post-title-input" placeholder="제목을 입력하세요">
+                <div id="editor"></div>
+            </main>
+
+            <aside class="sidebar">
+                <div class="sidebar-box">
+                    <div class="sidebar-actions">
+
+                        <button id="publishBtn" class="btn btn-primary">글쓰기</button>
+                    </div>
+                </div>
+                
+                <div class="sidebar-box">
+                    <h3>대표 이미지 (썸네일)</h3>
+                    <div class="thumbnail-uploader">
+                        <label for="thumbnail-upload">이미지 선택</label>
+                        <input type="file" id="thumbnail-upload" accept="image/*">
+                    </div>
+                    <img id="thumbnail-preview" alt="대표 이미지 미리보기">
+                </div>
+                
+                <div class="sidebar-box">
+                    <h3>카테고리</h3>
+                    <div class="form-group">
+                        <select id="category-select">
+                            <option value="korea">국내여행</option>
+                            <option value="europe">유럽</option>
+                            <option value="southeastAsia">동남아시아</option>
+                            <option value="eastAsia">동아시아</option>
+                            <option value="america">미국/아메리카</option>
+                            <option value="oceania">오세아니아</option>
+                            <option value="tip">여행팁</option>
+                        </select>
+                    </div>
+                </div>
+
+                 <div class="sidebar-box">
+                    <h3>해시태그 (최대 5개)</h3>
+                    <div class="tag-input-container">
+                        <ul id="tag-list"></ul>
+                        <input type="text" id="tag-input" placeholder="태그 입력 후 Enter">
+                    </div>
+                 </div>
+            </aside>
+
+        </div>
+    </div>
+
+    <script>
+        const quill = new Quill('#editor', {
+            theme: 'snow',
+            placeholder: '당신의 여행 이야기를 들려주세요...',
+            modules: {
+                toolbar: [
+                    [{ 'header': [1, 2, 3, false] }],
+                    ['bold', 'italic', 'underline', 'strike'],
+                    ['blockquote'],
+                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                    [{ 'color': [] }, { 'background': [] }],
+                    [{ 'align': [] }],
+                    ['link', 'image'],
+                    ['clean']
+                ],
+                imageResize: { 
+                    displaySize: true
+                }
+            }
+        });
+
+        const thumbnailUpload = document.getElementById('thumbnail-upload');
+        const thumbnailPreview = document.getElementById('thumbnail-preview');
+
+        thumbnailUpload.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    thumbnailPreview.src = e.target.result;
+                    thumbnailPreview.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        const tagList = document.getElementById('tag-list');
+        const tagInput = document.getElementById('tag-input');
+
+        function createTag(label) {
+            const li = document.createElement('li');
+            li.innerHTML = `<span>#${label}</span><span class="remove-tag-btn">x</span>`;
+            tagList.appendChild(li);
+        }
+
+        tagInput.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const tagValue = tagInput.value.trim().replace(/\s+/g, '-');
+
+                if (tagValue) {
+                    if (tagList.children.length < 5) {
+                        createTag(tagValue);
+                        tagInput.value = '';
+                    } else {
+                        alert('해시태그는 최대 5개까지 추가할 수 있습니다.');
+                    }
+                }
+            }
+        });
+
+        tagList.addEventListener('click', (e) => {
+            if (e.target.classList.contains('remove-tag-btn')) {
+                e.target.parentElement.remove();
+            }
+        });
+
+        document.getElementById('publishBtn').addEventListener('click', async () => {
+            const title = document.getElementById('postTitle').value.trim();
+            const content = quill.root.innerHTML.trim();
+            const thumbnailFile = thumbnailUpload.files[0];
+
+            const tags = [];
+            tagList.querySelectorAll('li span:first-child').forEach(tagEl => {
+                tags.push(tagEl.textContent.replace('#', ''));
+            });
+            const hashtag = tags.join(',');
+
+            if (!title || !content || content === '<p><br></p>') {
+                alert('제목/내용을 입력하세요.');
+                return;
+            }
+
+            const fd = new FormData();
+            fd.append('title', title);
+            fd.append('content', content);
+            fd.append('hashtag', hashtag);
+            fd.append('user_id', '1');
+            if (thumbnailFile) fd.append('thumbnail', thumbnailFile);
+
+            try {
+                const res = await fetch('/edit', { 
+                        method: 'POST', 
+                        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                        body: fd 
+                    });
+                const data = await res.json();
+                if (!res.ok || !data.ok) {
+                    console.error('글 저장 실패:', data);
+                    //alert(data.error || '글 저장 실패');
+                    return;
+                }
+                location.href = `/posts/${data.id}`;
+            } catch (e) {
+                console.error(e);
+                alert('네트워크 오류');
+            }
+        });
+    </script>
+</body>
+</html>
